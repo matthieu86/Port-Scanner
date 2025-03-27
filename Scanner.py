@@ -10,15 +10,9 @@
 
 import nmap
 
-#nmap_path = "/opt/homebrew/bin/nmap"
-#scanner = nmap.PortScanner(nmap_search_path=(nmap_path,))
-
-#regular expression pattern to recognise IPv4 addresses
-#ip_add_pattern = re.compile("^(?:[0-9]){1,3}\.){3}[0-9]{1,3}$")
 
 def scan_ports(target, ports):
     """
-
     :param target: IP address or server name domain
     :param ports: range of ports to scan
     """
