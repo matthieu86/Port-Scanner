@@ -1,10 +1,22 @@
+################################################################
+#                                                              #
+#               Program to scan a domain/IP @                  #
+#                       using NMAP                             #
+#                                                              #
+#  go on scanme.nmap.org to find some adresses/domain to test  #
+#                                                              #
+################################################################
+
+
 import nmap
 
+#nmap_path = "/opt/homebrew/bin/nmap"
+#scanner = nmap.PortScanner(nmap_search_path=(nmap_path,))
 
 #regular expression pattern to recognise IPv4 addresses
 #ip_add_pattern = re.compile("^(?:[0-9]){1,3}\.){3}[0-9]{1,3}$")
 
-def scan_ports(target, ports= "1-1024"):
+def scan_ports(target, ports):
     """
 
     :param target: IP address or server name domain
@@ -22,5 +34,23 @@ def scan_ports(target, ports= "1-1024"):
         -T4 scan speed: fast but relatively noise less
         --open prints only open ports and not closed/filtered
     """
+#looping on all  hosts detected by NMAP
+    for i in scanner.all_hosts():
+        print(f"\n📡 result for {i}:")
+        print(f"  - State : {scanner[i].state()}")  # up/down
+
+        #looping on protocols
+        for y in scanner[i].all_protocols():
+            print(f"  -Protocol: {y}")
+
+            #listing open ports
+            open_ports=scanner[i][y].keys()
+            for port in sorted(open_ports):
+                service = scanner[i][y][port]['name']  # service
+                print(f"    - Port {port} : OPEN ({service})")
 
 
+#T = input("Enter an IP @ or a Domain to scan : ")
+#scan_ports(T)
+
+scan_ports("scanme.nmap.org", "22,80,443")
