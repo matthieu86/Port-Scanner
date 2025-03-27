@@ -3,7 +3,7 @@
 #               Program to scan a domain/IP @                  #
 #                       using NMAP                             #
 #                                                              #
-#  go on scanme.nmap.org to find some adresses/domain to test  #
+#               use scanme.nmap.org  to test                   #
 #                                                              #
 ################################################################
 
