@@ -53,4 +53,4 @@ def scan_ports(target, ports):
 #T = input("Enter an IP @ or a Domain to scan : ")
 #scan_ports(T)
 
-scan_ports("scanme.nmap.org", "22,80,443")
+scan_ports("scanme.nmap.org", "1-1024")
